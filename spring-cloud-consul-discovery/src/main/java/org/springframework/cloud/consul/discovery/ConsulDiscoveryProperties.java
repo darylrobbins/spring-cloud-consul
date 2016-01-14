@@ -65,6 +65,8 @@ public class ConsulDiscoveryProperties {
 
 	private boolean preferIpAddress = false;
 
+	private Integer port = null;
+
 	private int catalogServicesWatchDelay = 10;
 
 	private int catalogServicesWatchTimeout = 2;

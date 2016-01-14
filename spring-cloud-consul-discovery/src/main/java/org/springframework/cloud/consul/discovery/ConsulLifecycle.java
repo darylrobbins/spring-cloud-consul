@@ -52,7 +52,7 @@ public class ConsulLifecycle extends AbstractDiscoveryLifecycle {
 
 	@Autowired(required = false)
 	private ServletContext servletContext;
-	
+
 	private NewService service = new NewService();
 
 	@Override
@@ -78,6 +78,10 @@ public class ConsulLifecycle extends AbstractDiscoveryLifecycle {
 		service.setId(id);
 		service.setName(normalizeForDns(appName));
 		service.setTags(createTags());
+
+		if (properties.getPort() != null) {
+			service.setPort(properties.getPort());
+		}
 
 		Integer port;
 		if (shouldRegisterManagement()) {
